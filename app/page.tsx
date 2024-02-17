@@ -1,4 +1,7 @@
+import SubscribeCard from "@/components/SubscribeCard";
+import Trending from "@/components/Trending";
 import TweetCard from "@/components/TweetCard";
+import WhoToFollow from "@/components/WhoToFollow";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Bell,
@@ -69,8 +72,8 @@ const option: optionNav[] = [
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-12 h-screen">
-      <div className="grid pt-5 col-span-3 justify-end pr-5">
+    <div className="grid grid-cols-12 h-screen border">
+      <div className="ml-36 pt-5 col-span-3 justify-end pr-5">
         <div className="p-3 cursor-pointer hover:bg-zinc-800 h-fit w-fit rounded-full transition-all">
           <Twitter size={35} />
         </div>
@@ -105,6 +108,33 @@ export default function Home() {
         </div>
       </div>
       <div className="border overflow-y-scroll h-screen col-span-6 ">
+        <div>
+          <div className="w-full flex items-center justify-evenly p-2 cursor-pointer">
+            <div className="border-b-4 px-1 border-sky-500">For You</div>
+            <div>Following</div>
+          </div>
+          <div className="grid grid-cols-12 py-3 h-fit border-t-2">
+            <div className="col-span-1 ml-4">
+              <Avatar>
+                <AvatarImage
+                  src={"https://avatars.githubusercontent.com/u/111121419?v=4"}
+                  alt="@user-image"
+                />
+                <AvatarFallback>SJ</AvatarFallback>
+              </Avatar>
+            </div>
+            <div className="col-span-9">
+              <div>
+                <input
+                  type="text"
+                  className="bg-transparent py-2 w-[90%] outline-none"
+                  placeholder="what is happening?"
+                />
+              </div>
+              <div>Some icons</div>
+            </div>
+          </div>
+        </div>
         <TweetCard />
         <TweetCard />
         <TweetCard />
@@ -114,7 +144,21 @@ export default function Home() {
         <TweetCard />
         <TweetCard />
       </div>
-      <div className="grid col-span-4"></div>
+      <div className="col-span-2  m-3">
+        <div className="flex gap-x-2 h-fit w-full items-center mb-4 rounded-full p-3 bg-zinc-800 ">
+          <span>
+            <Search size={20} className="text-zinc-400" />
+          </span>
+          <input
+            type="text"
+            className="bg-transparent outline-none"
+            placeholder="Search"
+          />
+        </div>
+        <SubscribeCard />
+        <Trending />
+        <WhoToFollow />
+      </div>
     </div>
   );
 }

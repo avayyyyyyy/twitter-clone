@@ -1,5 +1,11 @@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Heart, MessageCircle, Repeat2, Upload } from "lucide-react";
+import {
+  Heart,
+  MessageCircle,
+  MoreHorizontal,
+  Repeat2,
+  Upload,
+} from "lucide-react";
 import React from "react";
 
 type Props = {};
@@ -17,7 +23,15 @@ const TweetCard = (props: Props) => {
         </Avatar>
       </div>
       <div className="col-span-11 mr-5 ">
-        <div>Shubhankit Jain</div>
+        <div className="flex justify-between items-center">
+          <div className="flex items-baseline">
+            <div>Shubhankit Jain</div>
+            <div className="text-zinc-400 ml-2 text-sm">@shubhcodes</div>
+          </div>
+          <div className="hover:bg-zinc-800 p-1 rounded-full ">
+            <MoreHorizontal />
+          </div>
+        </div>
         <div className="text-sm mt-1">
           <p>
             I recently got an Offer as a Remote but on Contract MERN Developer
